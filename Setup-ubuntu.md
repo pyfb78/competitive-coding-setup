@@ -29,5 +29,5 @@ This basically opens your config file in neovim. Now, copy the code from the ini
 Note: to paste from outside sources in neovim, you have to right click and then click on paste for it to paste properly.
 
 Now click the escape key and type `:PlugInstall`. This will download all of the plugins for you. Then type `:wq` to save and leave the file. 
-If you want to change things like the colorscheme, I will create a new youtube video on how to do that. I will also create another file with directions on how to 
+If you want to change things like the colorscheme, I will create a new youtube video on how to do that. That same video will have directions on how to 
 navigate and use neovim.
