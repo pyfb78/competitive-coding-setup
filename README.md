@@ -3,4 +3,4 @@ This is how I set up my competitive text editor. I use a free online linux distr
 
 So first, you want download neovim. In Ubuntu, this can be done with the command;
 
-`sudo apt install neovim'
+`sudo apt install neovim`
