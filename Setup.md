@@ -1,5 +1,5 @@
 # competitive-coding-setup
-This is how I set up my competitive text editor. I use a free online linux distro called Ubuntu.
+This is how I set up my competitive programming text editor. I use a free online linux distro called Ubuntu. If you use windows, do not fear, I will create another file with how to do it on windows. Everything in here will be done in the Ubuntu terminal.
 
 So first, you want download neovim. This is a text editor like vim, except it can handle plugins better. In Ubuntu, this can be done with the command;
 
@@ -22,4 +22,12 @@ Now, you will want to download vim-plug. This will make your life easier when do
 
 This will create a directory called autoload that contains all of the things you need for vim-plug. Now, I do not like to use a seperate directory for my vim setup, but I used this command when I was first setting up my neovim. I found all of this out in this blog; https://www.chrisatmachine.com/Neovim/01-vim-plug/. Check it out, it is pretty good. If you want to download your plugins in another file, follow the directions in the blog. 
 
-Now, you have all of the neccassary requirements to set up your config file. 
+Now, you have all of the neccassary requirements to set up your config file. Go to your init.vim file by using the command;
+`nvim init.vim`
+
+This basically opens your config file in neovim. Now, copy the code from the init.vim file in this github project. Paste it into your init.vim file. 
+Note: to paste from outside sources in neovim, you have to right click and then click on paste for it to paste properly.
+
+Now click the escape key and type `:PlugInstall`. This will download all of the plugins for you. Then type `:wq` to save and leave the file. 
+If you want to change things like the colorscheme, I will create a new youtube video on how to do that. I will also create another file with directions on how to 
+navigate and use neovim.
