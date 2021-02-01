@@ -142,10 +142,9 @@ inoremap jk <Esc>
 " run code
 augroup compileandrun
     autocmd!
-    autocmd filetype python nnoremap <f4> :w <bar> :!python3.9 <cr>
+    autocmd filetype python nnoremap <f4> :w <bar> :te !python3.9 <cr>
     autocmd filetype cpp nnoremap <f7> :w <bar> !g++ -std=c++17 %<cr> 
     autocmd filetype cpp nnoremap <f8> :vnew <bar> :te ./a.out <cr>
     autocmd filetype c nnoremap <f5> :w <bar> !make %:r && ./%:r <cr>
-    autocmd filetype java nnoremap <f5> :w <bar> !javac % && java %:r <cr>
 augroup END
  
