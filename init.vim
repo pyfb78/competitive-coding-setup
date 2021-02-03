@@ -1,5 +1,5 @@
 call plug#begin(stdpath('data'))
-
+Plug 'vim-syntastic/syntastic'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'sheerun/vim-polyglot'
@@ -60,7 +60,15 @@ let g:airline#extensions#tabline#enabled = 1
 if !exists('g:airline_symbols')
     let g:airline_symbols = {}
 endif
+" Check for errors
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
 
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
 " unicode symbols
 let g:airline_left_sep = '»'
 let g:airline_left_sep = '▶'
@@ -139,12 +147,14 @@ let g:syntastic_cpp_compiler = 'g++'
 let g:syntastic_cpp_compiler_options = ' -std=c++17'
 
 inoremap jk <Esc>
+autocmd filetype cpp nnoremap <F4> :w <cr>
+autocmd filetype java nnoremap <F4> :w <cr> 
+autocmd filetype python nnoremap <F4> :w <cr> 
 " run code
 augroup compileandrun
     autocmd!
-    autocmd filetype python nnoremap <f4> :w <bar> :te !python3.9 <cr>
+    autocmd filetype python nnoremap <f5> :w <bar> :!python3.9 <cr>
     autocmd filetype cpp nnoremap <f7> :w <bar> !g++ -std=c++17 %<cr> 
     autocmd filetype cpp nnoremap <f8> :vnew <bar> :te ./a.out <cr>
-    autocmd filetype c nnoremap <f5> :w <bar> !make %:r && ./%:r <cr>
+    autocmd filetype java nnoremap <f6> :w <bar> !javac % && java %:r <cr>
 augroup END
- 
