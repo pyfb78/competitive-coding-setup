@@ -1,5 +1,4 @@
 call plug#begin(stdpath('data'))
-Plug 'vim-syntastic/syntastic'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'sheerun/vim-polyglot'
