@@ -134,7 +134,7 @@ nnoremap <leader>sv :source $MYVIMRC<cr>
 " enable or disable line wrapping in current buffer
 nnoremap <buffer> <localleader>w :set wrap!<cr>
 
-" c++11 support in syntastic
+" c++17 support in syntastic
 let g:syntastic_cpp_compiler = 'g++'
 let g:syntastic_cpp_compiler_options = ' -std=c++17'
 " Check for errors
