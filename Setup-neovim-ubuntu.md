@@ -25,7 +25,7 @@ This will create a directory called autoload that contains all of the things you
 Now, you have all of the neccassary requirements to set up your config file. Go to your init.vim file by using the command;
 `nvim init.vim`
 
-This basically opens your config file in neovim. Now, copy the code from the init.vim file in this github project. Paste it into your init.vim file. 
+This basically opens your config file in neovim. Now, copy the code from the `init.vim mac-linux` file in this github project. Paste it into your init.vim file. 
 Note: to paste from outside sources in neovim, you have to right click and then click on paste for it to paste properly.
 
 Now click the escape key and type `:PlugInstall`. This will download all of the plugins for you. Then type `:wq` to save and leave the file. 
