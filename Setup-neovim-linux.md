@@ -1,5 +1,5 @@
 # competitive-coding-setup
-This is how I set up my competitive programming text editor. I use a free online linux distro called Ubuntu. Since most competative programmers use C++, this is specifically made for those who use C++. That does not mean that this setup guide is useless to you. You can change some of the commands in the init.vim file to suit your language of choice. If you use windows, do not fear, I will create another file with how to do it on windows. Everything in here will be done in the Ubuntu terminal.
+This is how I set up my competitive programming text editor. I use a free online linux distro called Ubuntu. Since most competitive programmers use C++, this is specifically made for those who use C++. That does not mean that this setup guide is useless to you. You can change some of the commands in the init.vim file to suit your language of choice. If you use windows, do not fear, I will create another file with how to do it on windows. Everything in here will be done in the Ubuntu terminal.
 
 So first, you want download neovim. This is a text editor like vim, except it can handle plugins better. In Ubuntu, this can be done with the command;
 
