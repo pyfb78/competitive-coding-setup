@@ -1,5 +1,5 @@
 # competitive-coding-setup
-This is how I set up my competitive programming text editor. I use a free online linux distro called Ubuntu. Since most competitive programmers use C++, this is specifically made for those who use C++. That does not mean that this setup guide is useless to you. You can change the compiler support and the language support for your language of choice. I will go over that in a youtube video. If you use windows, do not fear, I will create another file with how to do it on windows. 
+This is how I set up my competitive programming text editor. I use a free online linux distro called Ubuntu. Since most competitive programmers use C++, this is specifically made for those who use C++. That does not mean that this setup guide is useless to you. You can change the compiler support and the language support for your language of choice. I will go over that in a youtube video. If you use windows or mac, do not fear, I will create 2 files with how to do it on windows and mac. 
 
 Everything in here will be done in the Ubuntu terminal.
 
