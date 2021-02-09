@@ -22,8 +22,6 @@ Now, you will want to download vim-plug. This will make your life easier when do
 
 `curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim`
 
-This will create a directory called autoload that contains all of the things you need for vim-plug. Now, I do not like to use a seperate directory for my vim setup, but I used this command when I was first setting up my neovim. I found all of this out in this blog; https://www.chrisatmachine.com/Neovim/01-vim-plug/. Check it out, it is pretty good. If you want to download your plugins in another file, follow the directions in the blog. 
-
 Now, you have all of the neccassary requirements to set up your config file. Go to your init.vim file by using the command;
 `nvim init.vim`
 
