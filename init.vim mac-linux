@@ -144,16 +144,17 @@ nnoremap <buffer> <localleader>w :set wrap!<cr>
 " c++17 support in syntastic
 let g:syntastic_cpp_compiler = 'g++'
 let g:syntastic_cpp_compiler_options = ' -std=c++17'
-
+"No Stupid Python errors
 inoremap jk <Esc>
-autocmd filetype cpp nnoremap <F4> :w <cr>
-autocmd filetype java nnoremap <F4> :w <cr> 
-autocmd filetype python nnoremap <F4> :w <cr> 
 " run code
 augroup compileandrun
     autocmd!
-    autocmd filetype python nnoremap <f5> :w <bar> :!python3.9 <cr>
     autocmd filetype cpp nnoremap <f7> :w <bar> !g++ -std=c++17 %<cr> 
     autocmd filetype cpp nnoremap <f8> :vnew <bar> :te ./a.out <cr>
-    autocmd filetype java nnoremap <f6> :w <bar> !javac % && java %:r <cr>
 augroup END
+" Tab controls
+nnoremap tn :tabnew<Space>
+map <C-t><up> :tabr<cr>
+map <C-t><down> :tabl<cr>
+map <C-t><left> :tabp<cr>
+map <C-t><right> :tabn<cr> 
