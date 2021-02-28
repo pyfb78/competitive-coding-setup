@@ -1,5 +1,5 @@
 # competitive-coding-setup
-This is how I set up my competitive programming text editor. I use a free online linux distro called Ubuntu. Since most competitive programmers use C++, this is specifically made for those who use C++. That does not mean that this setup guide is useless to you. You can change the compiler support and the language support for your language of choice. I will go over that in a youtube video. If you use windows or mac, do not fear, I will create 2 files with how to do it on windows and mac. 
+This is how I set up my competitive programming text editor. I use a free online linux distro called Neon KDE. Since most competitive programmers use C++, this is specifically made for those who use C++. That does not mean that this setup guide is useless to you. You can change the compiler support and the language support for your language of choice. I will go over that in a youtube video. If you use windows or mac, do not fear, I will create 2 files with how to do it on windows and mac. 
 
 Everything in here will be done in the Ubuntu terminal.
 
@@ -31,3 +31,5 @@ Note: to paste from outside sources in neovim, you have to right click and then 
 Now click the escape key and type `:PlugInstall`. This will download all of the plugins for you. Then type `:wq` to save and leave the file. 
 If you want to change things like the colorscheme, I will create a new youtube video on how to do that. That same video will have directions on how to 
 navigate and use neovim.
+
+Note: If `:PlugInstall` does not work, make sure that you have git installed.
