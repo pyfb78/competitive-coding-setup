@@ -29,14 +29,11 @@ nnoremap <C-H> <C-W><C-H>
 
 set splitbelow
 set splitright
-
+set clipboard=unnamedplus
 " Enable folding
 set foldmethod=indent
 set foldlevel=99
-"Enable folding with the spacebar
-nnoremap <space> za
-
-" open files with ctrl-p
+"open files with ctrl-p
 nnoremap <c-p> :Files<cr>
 
 au BufNewFile,BufRead *.py,*.java,*.cpp,*.c,*.cs,*.rkt,*.h,*.html
@@ -149,12 +146,10 @@ let g:syntastic_cpp_compiler_options = ' -std=c++17'
 " run code
 augroup compileandrun
     autocmd!
-    autocmd filetype cpp nnoremap <f7> <buffer> :w <bar> !g++ -std=c++17 %<cr> :vnew <bar> :te ./a.out <cr> 
-    autocmd filetype cpp nnoremap <f8> <buffer> :vnew <bar> :te ./a.out <cr>
+    autocmd filetype cpp nnoremap <buffer> <f7> :w <bar> !g++ -std=c++17 %<cr> :vnew <bar> :te ./a.out <cr> 
+    autocmd filetype cpp nnoremap <buffer> <f8> :vnew <bar> :te ./a.out <cr>
 augroup END
 " Tab controls
 nnoremap tn :tabnew<Space>
-map <C-t><up> :tabr<cr>
-map <C-t><down> :tabl<cr>
 map <C-t><left> :tabp<cr>
 map <C-t><right> :tabn<cr> 
