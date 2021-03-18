@@ -140,22 +140,15 @@ nnoremap <buffer> <localleader>w :set wrap!<cr>
 " c++17 support in syntastic
 let g:syntastic_cpp_compiler = 'g++'
 let g:syntastic_cpp_compiler_options = ' -std=c++17'
-"Run code C++
+"Run code 
 augroup compileandrun
     autocmd!
-    autocmd filetype cpp nnoremap <buffer> <f7> :w <bar> !g++ -std=c++17 %<cr> :vnew <bar> :te ./a.out <cr><cr>
-    autocmd filetype cpp nnoremap <buffer> <f8> :vnew <bar> :te ./a.out <cr>
+    autocmd filetype cpp nnoremap <buffer> <f7> :w <bar> !g++ -std=c++17 %<cr> :vnew <bar> :te ./a.out <cr><cr> i
+    autocmd filetype cpp nnoremap <buffer> <f8> :vnew <bar> :te ./a.out <cr> i
+    autocmd Filetype python nnoremap <buffer> <F6> :w<CR>:vsplit<cr>:vert ter python3 "%"<CR> i 
 augroup END
 "No stupid python warnings
-let g:syntastic_python_pylint_quiet_messages = { 'regex': 'missing-module-docstring' }
-" Section: work with other plugins
-" w0rp/ale
-let g:runner_is_with_ale = 0
-" iamcco/markdown-preview.vim
-let g:runner_is_with_md = 0
-let g:runner_python_executable = "python3"
-
-
+let g:syntastic_python_pylint_quiet_messages = { "level": "warnings" }
 " Tab controls
 nnoremap tn tabnew<Space>
 map <C-t><left> :tabp<cr>
