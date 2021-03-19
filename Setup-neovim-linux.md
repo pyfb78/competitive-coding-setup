@@ -32,4 +32,4 @@ Now click the escape key and type `:PlugInstall`. This will download all of the 
 If you want to change things like the colorscheme, I will create a new youtube video on how to do that. That same video will have directions on how to 
 navigate and use neovim.
 
-Note: If `:PlugInstall` does not work, make sure that you have git installed.
+Note: If `:PlugInstall` does not work, make sure that you have git installed. I also have kite installed for auto complete with python.
