@@ -138,6 +138,8 @@ augroup compileandrun
 augroup END
 "Python autocomplete
 let g:python3_host_prog='/usr/bin/python3'
+"Other junk
+au Filetype cpp let b:AutoPairs = {"<": ""}
 " Tab controls
 nnoremap tn tabnew<Space>
 map <C-t><left> :tabp<cr>
@@ -146,8 +148,8 @@ map <C-t><right> :tabn<cr>
 let g:SuperTabDefaultCompletionType = "<c-n>"
 "coc.nvim setup
 " Set internal encoding of vim, not needed on neovim, since coc.nvim using some
-" unicode characters in the file autoload/float.vim
-set encoding=utf-8
+" unicode character in the file autoload/float.vim
+" set encoding=utf-8
 
 " TextEdit might fail if hidden is not set.
 set hidden
