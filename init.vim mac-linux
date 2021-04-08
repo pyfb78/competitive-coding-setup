@@ -14,6 +14,7 @@ Plug 'ervandew/supertab'
 Plug 'jiangmiao/auto-pairs'
 Plug 'Vimjas/vim-python-pep8-indent'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'preservim/nerdtree'
 call plug#end()
 
 filetype plugin on
@@ -26,7 +27,7 @@ nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
-
+set mouse=a 
 set splitbelow
 set splitright
 set clipboard=unnamedplus
@@ -44,7 +45,6 @@ au BufNewFile,BufRead *.py,*.java,*.cpp,*.c,*.cs,*.rkt,*.h,*.html
     \ set expandtab |
     \ set autoindent |
     \ set fileformat=unix |
-
 set encoding=utf-8
 
 syntax on
@@ -138,8 +138,6 @@ augroup compileandrun
 augroup END
 "Python autocomplete
 let g:python3_host_prog='/usr/bin/python3'
-"Other junk
-au Filetype cpp let b:AutoPairs = {"<": ""}
 " Tab controls
 nnoremap tn tabnew<Space>
 map <C-t><left> :tabp<cr>
@@ -147,9 +145,9 @@ map <C-t><right> :tabn<cr>
 "reverse the order of coc.nvim 
 let g:SuperTabDefaultCompletionType = "<c-n>"
 "coc.nvim setup
-" Set internal encoding of vim, not needed on neovim, since coc.nvim using some
+" Set internal encoding of vim, not needed n neovim, since coc.nvim using some
 " unicode character in the file autoload/float.vim
-" set encoding=utf-8
+set encoding=utf-8
 
 " TextEdit might fail if hidden is not set.
 set hidden
@@ -302,5 +300,19 @@ nnoremap <silent><nowait> <space>j  :<C-u>CocNext<CR>
 " Do default action for previous item.
 nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list.
-nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
+nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>o
+
+"NerdTree
+" Start NERDTree when Vim is started without file arguments.
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists('s:std_in') | NERDTree | endif
+" Start NERDTree. If a file is specified, move the cursor to its window.
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * NERDTree | if argc() > 0 || exists("s:std_in") | wincmd p | endif
+" Exit Vim if NERDTree is the only window left.
+autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() |
+    \ quit | endif
+" If another buffer tries to replace NERDTree, put it in the other window, and bring back NERDTree.
+autocmd BufEnter * if bufname('#') =~ 'NERD_tree_\d\+' && bufname('%') !~ 'NERD_tree_\d\+' && winnr('$') > 1 |
+    \ let buf=bufnr() | buffer# | execute "normal! \<C-W>w" | execute 'buffer'.buf | endif
 
