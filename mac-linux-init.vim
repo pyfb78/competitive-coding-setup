@@ -6,7 +6,6 @@ Plug 'sheerun/vim-polyglot'
 Plug 'tpope/vim-surround'
 Plug 'Raimondi/delimitMate'
 Plug 'vim-airline/vim-airline'
-Plug 'ryanoasis/vim-devicons'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'rafi/awesome-vim-colorschemes'
 Plug 'preservim/nerdcommenter'
@@ -16,6 +15,7 @@ Plug 'Vimjas/vim-python-pep8-indent'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'preservim/nerdtree'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+Plug 'ryanoasis/vim-devicons'
 call plug#end()
 
 filetype plugin on
@@ -78,7 +78,6 @@ let g:airline_right_alt_sep = ''
 let g:airline_symbols.branch = ''
 let g:airline_symbols.readonly = ''
 let g:airline_symbols.linenr = ''
-
 highlight Comment cterm=italic gui=italic
 set laststatus=2
 "set showtabline=2
@@ -132,8 +131,8 @@ nnoremap <buffer> <localleader>w :set wrap!<cr>
 "Run code 
 augroup compileandrun
     autocmd!
-    autocmd filetype cpp nnoremap <buffer> <f7> :w <bar> !g++ -std=c++17 %<cr><cr> :vnew <bar> :te ./a.out <cr><cr> i
-    autocmd filetype cpp nnoremap <buffer> <f8> :vnew <bar> :te ./a.out <cr> i
+    autocmd filetype cpp nnoremap <buffer> <f7> :w <bar> !g++ -std=c++17 %<cr><cr> :vnew <bar> :te ./a.out <cr> i  
+    autocmd filetype cpp nnoremap <buffer> <f8> :vnew <bar> :te ./a.out <cr> i 
     autocmd Filetype python nnoremap <buffer> <F6> :w<CR>:vsplit<cr>:vert ter python3 "%"<CR> i 
 augroup END
 "Python autocomplete
@@ -317,3 +316,8 @@ let g:NERDTreeWinSize=60
 "new files
 nnoremap make :!touch
 nnoremap rm :!rm
+set guifont=DroidSansMono\ Nerd\ Font\ Complete\ Mono\ 11
+let g:airline_powerline_fonts = 1
+"If I go to a different file in a different directory, the working directory
+"is the one I changed 
+set autochdir
