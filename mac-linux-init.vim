@@ -133,12 +133,10 @@ augroup compileandrun
     autocmd!
     autocmd filetype cpp nnoremap <buffer> <f7> :w <bar> !g++ -std=c++17 %<cr><cr> :vnew <bar> :te ./a.out <cr> i  
     autocmd filetype cpp nnoremap <buffer> <f8> :vnew <bar> :te ./a.out <cr> i 
-    autocmd Filetype python nnoremap <buffer> <F6> :w<CR>:vsplit<cr>:vert ter python3 "%"<CR> i 
+    autocmd Filetype python nnoremap <buffer> <f8> :w<CR>:vsplit<cr>:vert ter python3 "%"<CR> i 
 augroup END
 "Python autocomplete
 let g:python3_host_prog='/usr/bin/python3'
-" Tab controls
-nnoremap tn :tabnew<Space>
 "reverse the order of coc.nvim 
 let g:SuperTabDefaultCompletionType = "<c-n>"
 "coc.nvim setup
