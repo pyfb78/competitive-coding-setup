@@ -57,27 +57,27 @@ if !exists('g:airline_symbols')
     let g:airline_symbols = {}
 endif
 " unicode symbols
-let g:airline_left_sep = '»'
-let g:airline_left_sep = '▶'
-let g:airline_right_sep = '«'
-let g:airline_right_sep = '◀'
-let g:airline_symbols.linenr = '␊'
-let g:airline_symbols.linenr = '␤'
-let g:airline_symbols.linenr = '¶'
-let g:airline_symbols.branch = '⎇'
-let g:airline_symbols.paste = 'ρ'
-let g:airline_symbols.paste = 'Þ'
-let g:airline_symbols.paste = '∥'
-let g:airline_symbols.whitespace = 'Ξ'
+let g:airline_left_sep = '�'
+let g:airline_left_sep = '$(C":(B'
+let g:airline_right_sep = '�'
+let g:airline_right_sep = '$(C"8(B'
+let g:airline_symbols.linenr = '%G␊%@'
+let g:airline_symbols.linenr = '%G␤%@'
+let g:airline_symbols.linenr = '�'
+let g:airline_symbols.branch = '%G⎇%@'
+let g:airline_symbols.paste = '-F�'
+let g:airline_symbols.paste = '-A�'
+let g:airline_symbols.paste = '$(C!+(B'
+let g:airline_symbols.whitespace = '-F�'
 
 " airline symbols
-let g:airline_left_sep = ''
-let g:airline_left_alt_sep = ''
-let g:airline_right_sep = ''
-let g:airline_right_alt_sep = ''
-let g:airline_symbols.branch = ''
-let g:airline_symbols.readonly = ''
-let g:airline_symbols.linenr = ''
+let g:airline_left_sep = '%G%@'
+let g:airline_left_alt_sep = '%G%@'
+let g:airline_right_sep = '%G%@'
+let g:airline_right_alt_sep = '%G%@'
+let g:airline_symbols.branch = '%G%@'
+let g:airline_symbols.readonly = '%G%@'
+let g:airline_symbols.linenr = '%G%@'
 highlight Comment cterm=italic gui=italic
 set laststatus=2
 "set showtabline=2
@@ -316,3 +316,4 @@ let g:airline_powerline_fonts = 1
 "If I go to a different file in a different directory, the working directory
 "is the one I changed 
 set autochdir
+
