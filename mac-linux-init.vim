@@ -56,17 +56,12 @@ let g:airline#extensions#tabline#enabled = 1
 if !exists('g:airline_symbols')
     let g:airline_symbols = {}
 endif
-" unicode symbols
-let g:airline_left_sep = '»'
-let g:airline_right_sep = '«'
-let g:airline_symbols.paste = 'ρ'
-let g:airline_symbols.paste = 'Þ'
-let g:airline_symbols.paste = '∥'
-let g:airline_symbols.whitespace = 'Ξ'
-
-" airline symbols
 let g:airline_symbols.branch = ''
 let g:airline_symbols.readonly = ''
+let g:airline_left_alt_sep = ''
+let g:airline_right_sep = ''
+let g:airline_right_alt_sep = ''
+let g:airline_left_sep = ''
 highlight Comment cterm=italic gui=italic
 set laststatus=2
 "set showtabline=2
@@ -120,9 +115,9 @@ nnoremap <buffer> <localleader>w :set wrap!<cr>
 "Run code 
 augroup compileandrun
     autocmd!
-    autocmd filetype cpp nnoremap <buffer> <f7> :w <bar> !g++ -std=c++17 %<cr><cr> :vnew <bar> :te ./a.out <cr> i  
-    autocmd filetype cpp nnoremap <buffer> <f8> :vnew <bar> :te ./a.out <cr> i 
-    autocmd Filetype python nnoremap <buffer> <f8> :w<CR>:vsplit<cr>:vert ter python3 "%"<CR> i 
+    autocmd filetype cpp nnoremap <buffer> <f7> :w <bar> !g++ -std=c++17 %<cr><cr> :vnew <bar> :te ./a.out <cr>i
+    autocmd filetype cpp nnoremap <buffer> <f8> :vnew <bar> :te ./a.out <cr>i
+    autocmd Filetype python nnoremap <buffer> <f8> :w<CR>:vsplit<cr>:vert ter python3 "%"<CR>i
 augroup END
 "Python autocomplete
 let g:python3_host_prog='/usr/bin/python3'
