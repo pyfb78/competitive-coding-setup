@@ -17,6 +17,7 @@ Plug 'preservim/nerdtree'
 Plug 'vwxyutarooo/nerdtree-devicons-syntax'
 Plug 'tpope/vim-commentary'
 Plug 'trusktr/seti.vim'
+Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'ryanoasis/vim-devicons'
 call plug#end()
 
@@ -316,8 +317,7 @@ let g:airline_powerline_fonts = 1
 "is the one I changed 
 set autochdir
 let g:NERDTreeUseSimpleIndicator = 1
-
-set guifont=Consolas\ 10
-
+let g:NERDTreeGitStatusUseNerdFonts = 1
 autocmd FileType nerdtree setlocal nolist
-let g:WebDevIconsNerdTreeAfterGlyphPadding =' '
+
+let g:NERDTreeGitStatusWithFlags = 1
