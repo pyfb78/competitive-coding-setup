@@ -111,7 +111,7 @@ set autoindent " enable auto indentation of lines
 set smartindent " allow vim to best-effort guess the indentation
 set pastetoggle=<F2> " enable paste mode
 
-set wildmenu "graphical auto complete menu
+" set wildmenu "graphical auto complete menu
 set lazyredraw "redraws the screne when it needs to
 set showmatch "highlights matching brackets
 set incsearch "search as characters are entered
