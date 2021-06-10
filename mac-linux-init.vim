@@ -142,7 +142,6 @@ let g:SuperTabDefaultCompletionType = "<c-n>"
 "coc.nvim setup
 " Set internal encoding of vim, not needed n neovim, since coc.nvim using some
 " unicode character in the file autoload/float.vim
-set encoding=utf-8
 
 " TextEdit might fail if hidden is not set.
 set hidden
@@ -321,3 +320,8 @@ let g:NERDTreeGitStatusUseNerdFonts = 1
 autocmd FileType nerdtree setlocal nolist
 
 let g:NERDTreeGitStatusWithFlags = 1
+ 
+
+
+
+
