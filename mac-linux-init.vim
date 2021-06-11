@@ -147,7 +147,6 @@ augroup compileandrun
     autocmd filetype cpp nnoremap <buffer> <f7> :w <bar> !g++ -std=c++17 %<cr><cr> :vnew <bar> :te ./a.out <cr>i
     autocmd filetype cpp nnoremap <buffer> <f8> :vnew <bar> :te ./a.out <cr>i
     autocmd Filetype python nnoremap <buffer> <f8> :w<CR>:vsplit<cr>:vert ter python3 "%"<CR>i
-    autocmd filetype tex nnoremap <buffer> <f7> :w <CR> :VimtexErrors <CR>
     autocmd filetype tex nnoremap <buffer> <f8> :w <CR> :VimtexCompile <CR>
 augroup END
 "Python autocomplete
@@ -324,7 +323,7 @@ autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTr
 " If another buffer tries to replace NERDTree, put it in the other window, and bring back NERDTree.
 autocmd BufEnter * if bufname('#') =~ 'NERD_tree_\d\+' && bufname('%') !~ 'NERD_tree_\d\+' && winnr('$') > 1 |
     \ let buf=bufnr() | buffer# | execute "normal! \<C-W>w" | execute 'buffer'.buf | endif
-let g:NERDTreeWinSize=60
+let g:NERDTreeWinSize=1
 set guifont=DroidSansMono\ Nerd\ Font\ Complete\ Mono\ 11
 let g:airline_powerline_fonts = 1
 "If I go to a different file in a different directory, the working directory
@@ -361,3 +360,4 @@ augroup NCM2
         \ 'on_complete': ['ncm2#on_complete#omni', 'vimtex#complete#omnifunc'],
         \ })
 augroup END
+
