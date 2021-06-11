@@ -343,7 +343,10 @@ let g:vimtex_latexmk_continuous = 1
 let g:vimtex_compiler_progname = 'nvr'
 " use SumatraPDF if you are on Windows
 " use skim if you are on Mac
-" zathura can be downloaded on latex with the command 'sudo apt install zathura'
+" zathura can be downloaded on latex with the command 'sudo apt install zathura'\
+"Make sure that you download latexmk
+"sudo apt-get install texlive
+"sudo apt-get install latexmk
 let g:vimtex_view_method = 'zathura'
 " NCM2
 augroup NCM2
