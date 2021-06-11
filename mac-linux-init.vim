@@ -22,7 +22,6 @@ Plug 'ryanoasis/vim-devicons'
 Plug 'lervag/vimtex'
 Plug 'Konfekt/FastFold'
 Plug 'matze/vim-tex-fold'
-" assuming you're using vim-plug: https://github.com/junegunn/vim-plug
 Plug 'ncm2/ncm2'
 Plug 'roxma/nvim-yarp'
     " enable ncm2 for all buffers
@@ -148,6 +147,8 @@ augroup compileandrun
     autocmd filetype cpp nnoremap <buffer> <f7> :w <bar> !g++ -std=c++17 %<cr><cr> :vnew <bar> :te ./a.out <cr>i
     autocmd filetype cpp nnoremap <buffer> <f8> :vnew <bar> :te ./a.out <cr>i
     autocmd Filetype python nnoremap <buffer> <f8> :w<CR>:vsplit<cr>:vert ter python3 "%"<CR>i
+    autocmd filetype tex nnoremap <buffer> <f7> :w <CR> :VimtexErrors <CR>
+    autocmd filetype tex nnoremap <buffer> <f8> :w <CR> :VimtexCompile <CR>
 augroup END
 "Python autocomplete
 let g:python3_host_prog='/usr/bin/python3'
@@ -342,6 +343,8 @@ let g:vimtex_fold_manual = 1
 let g:vimtex_latexmk_continuous = 1
 let g:vimtex_compiler_progname = 'nvr'
 " use SumatraPDF if you are on Windows
+" use skim if you are on Mac
+" zathura can be downloaded on latex with the command 'sudo apt install zathura'
 let g:vimtex_view_method = 'zathura'
 " NCM2
 augroup NCM2
