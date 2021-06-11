@@ -19,6 +19,22 @@ Plug 'tpope/vim-commentary'
 Plug 'trusktr/seti.vim'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'ryanoasis/vim-devicons'
+Plug 'lervag/vimtex'
+Plug 'Konfekt/FastFold'
+Plug 'matze/vim-tex-fold'
+" assuming you're using vim-plug: https://github.com/junegunn/vim-plug
+Plug 'ncm2/ncm2'
+Plug 'roxma/nvim-yarp'
+    " enable ncm2 for all buffers
+    autocmd BufEnter * call ncm2#enable_for_buffer()
+    " IMPORTANT: :help Ncm2PopupOpen for more information
+    set completeopt=noinsert,menuone,noselect
+
+" NOTE: you need to install completion sources to get completions. Check
+" our wiki page for a list of sources: https://github.com/ncm2/ncm2/wiki
+Plug 'ncm2/ncm2-bufword'
+Plug 'ncm2/ncm2-path'
+set spelllang=en_us
 call plug#end()
 
 filetype plugin on
@@ -103,8 +119,6 @@ set showcmd
 set noswapfile " doesn't create swap files
 set noshowmode
 set shortmess+=c
-"set omnifunc=ClangComplete
-"set completefunc=ClangComplete
 
 set backspace=indent,eol,start " let backspace delete over lines
 set autoindent " enable auto indentation of lines
@@ -321,7 +335,26 @@ autocmd FileType nerdtree setlocal nolist
 
 let g:NERDTreeGitStatusWithFlags = 1
  
-
-
-
-
+"Latex Config
+let g:tex_flavor  = 'latex'
+let g:tex_conceal = ''
+let g:vimtex_fold_manual = 1
+let g:vimtex_latexmk_continuous = 1
+let g:vimtex_compiler_progname = 'nvr'
+" use SumatraPDF if you are on Windows
+let g:vimtex_view_method = 'zathura'
+" NCM2
+augroup NCM2
+  autocmd!
+  " some other settings...
+  " uncomment this block if you use vimtex for LaTex
+  autocmd Filetype tex call ncm2#register_source({
+            \ 'name': 'vimtex',
+            \ 'priority': 8,
+            \ 'scope': ['tex'],
+            \ 'mark': 'tex',
+            \ 'word_pattern': '\w+',
+            \ 'complete_pattern': g:vimtex#re#ncm2,
+            \ 'on_complete': ['ncm2#on_complete#omni', 'vimtex#complete#omnifunc'],
+            \ })
+augroup END
