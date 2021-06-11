@@ -55,7 +55,7 @@ set clipboard=unnamedplus
 set foldmethod=indent
 set foldlevel=99
 
-au BufNewFile,BufRead *.py,*.java,*.cpp,*.c,*.cs,*.rkt,*.h,*.html
+au BufNewFile,BufRead *.py,*.java,*.cpp,*.c,*.cs,*.rkt,*.h,*.html,*.tex
     \ set tabstop=4 |
     \ set softtabstop=4 |
     \ set shiftwidth=4 |
@@ -345,16 +345,16 @@ let g:vimtex_compiler_progname = 'nvr'
 let g:vimtex_view_method = 'zathura'
 " NCM2
 augroup NCM2
-  autocmd!
-  " some other settings...
-  " uncomment this block if you use vimtex for LaTex
-  autocmd Filetype tex call ncm2#register_source({
-            \ 'name': 'vimtex',
-            \ 'priority': 8,
-            \ 'scope': ['tex'],
-            \ 'mark': 'tex',
-            \ 'word_pattern': '\w+',
-            \ 'complete_pattern': g:vimtex#re#ncm2,
-            \ 'on_complete': ['ncm2#on_complete#omni', 'vimtex#complete#omnifunc'],
-            \ })
+    autocmd!
+    " some other settings...
+    " uncomment this block if you use vimtex for LaTex
+    autocmd Filetype tex call ncm2#register_source({
+        \ 'name': 'vimtex',
+        \ 'priority': 8,
+        \ 'scope': ['tex'],
+        \ 'mark': 'tex',
+        \ 'word_pattern': '\w+',
+        \ 'complete_pattern': g:vimtex#re#ncm2,
+        \ 'on_complete': ['ncm2#on_complete#omni', 'vimtex#complete#omnifunc'],
+        \ })
 augroup END
