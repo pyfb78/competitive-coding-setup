@@ -39,7 +39,7 @@ Plug 'lervag/vimtex'
 Plug 'Konfekt/FastFold'
 Plug 'matze/vim-tex-fold'
 Plug 'latex-lsp/texlab'
-" set spelllang=en_us
+set spelllang=en_us
 call plug#end()
 
 set nocompatible
@@ -153,8 +153,8 @@ augroup compileandrun
     autocmd filetype cpp nnoremap <buffer> <f7> :w <bar> !g++ -std=c++17 %<cr><cr> :vnew <bar> :te ./a.out <cr>i
     autocmd filetype cpp nnoremap <buffer> <f8> :vnew <bar> :te ./a.out <cr>i
     autocmd Filetype python nnoremap <buffer> <f8> :w<CR>:vsplit<cr>:vert ter python3 "%"<CR>i
-    autocmd filetype tex nnoremap <buffer> <f7> :w <bar> !asy -render=0 "%:r"-*.asy <cr><cr> :VimtexCompile <CR><cr>
-    autocmd filetype tex nnoremap <buffer> <F8> :VimtexView <cr>
+    autocmd filetype tex nnoremap <buffer> <f8> :w <bar> :VimtexCompile <cr>
+    autocmd filetype tex nnoremap <buffer> <f7> :w <bar>!pdflatex %:r<cr>:w <bar>!asy -render=0 %:r-*.asy<cr>:w <bar> !pdflatex %:r<cr><cr>
 augroup END
 "Python autocomplete
 let g:python3_host_prog='/usr/bin/python3'
@@ -343,6 +343,12 @@ autocmd FileType nerdtree setlocal nolist
 let g:NERDTreeGitStatusWithFlags = 1
  
 "Latex Config
+" let g:vimtex_quickfix_ignore_filters = [
+"           \ 'Marginpar on page',
+"           \ 'LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <24> not available size <24.88> substituted on input line 19.'
+"           \]
+
+let g:vimtex_quickfix_enabled = 0
 let g:tex_flavor  = 'latex'
 let g:tex_conceal = ''
 let g:vimtex_fold_manual = 1
