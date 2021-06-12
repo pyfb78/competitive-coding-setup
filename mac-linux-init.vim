@@ -13,23 +13,21 @@ Plug 'ervandew/supertab'
 Plug 'jiangmiao/auto-pairs'
 Plug 'Vimjas/vim-python-pep8-indent'
 " ALE + CoC
-" " let g:ale_sign_column_always = 1
-" let g:ale_sign_error = '#'
-" let g:ale_sign_warning = '>'
-" let g:ale_echo_msg_error_str = 'E'
-" let g:ale_echo_msg_warning_str = 'W'
-" let g:ale_echo_msg_format = '[%severity%] [%linter%] %s'
-" let g:ale_disable_lsp = 1
-" let g:ale_linters = {'python': []}
-" let g:ale_linters = {'tex': []}
-" set omnifunc=rubycomplete#Complete
+let g:ale_sign_column_always = 1
+let g:ale_sign_error = '#'
+let g:ale_sign_warning = '>'
+let g:ale_echo_msg_error_str = 'E'
+let g:ale_echo_msg_warning_str = 'W'
+let g:ale_echo_msg_format = '[%severity%] [%linter%] %s'
+let g:ale_disable_lsp = 1
+let g:ale_linters = {'python': []}
+let g:ale_linters = {'tex': []}
 let g:coc_global_extensions = [
             \ 'coc-pyright',
-            \ 'coc-tabnine',
             \ 'coc-texlab',
             \ 'coc-clangd',
             \ ]
-" Plug 'dense-analysis/ale'
+Plug 'dense-analysis/ale'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'preservim/nerdtree'
 Plug 'vwxyutarooo/nerdtree-devicons-syntax'
@@ -40,22 +38,6 @@ Plug 'ryanoasis/vim-devicons'
 Plug 'lervag/vimtex'
 Plug 'Konfekt/FastFold'
 Plug 'matze/vim-tex-fold'
-Plug 'ncm2/ncm2'
-Plug 'roxma/nvim-yarp'
-    " enable ncm2 for all buffers
-    autocmd BufEnter * call ncm2#enable_for_buffer()
-    " IMPORTANT: :help Ncm2PopupOpen for more information
-    " set completeopt=noinsert,menuone,noselect
-
-" NOTE: you need to install completion sources to get completions. Check
-" our wiki page for a list of sources: https://github.com/ncm2/ncm2/wiki
-Plug 'ncm2/ncm2-bufword'
-Plug 'ncm2/ncm2-path'
-" Plug 'maralla/completor.vim', { 'for' :
-"         \ ['tex', 'typescript', 'go',
-"         \ 'gitcommit', 'gitconfig'] }
-"     let g:completor_filetype_map = {}
-" Plug 'vim-latex/vim-latex'
 Plug 'latex-lsp/texlab'
 " set spelllang=en_us
 call plug#end()
@@ -148,7 +130,7 @@ set autoindent " enable auto indentation of lines
 set smartindent " allow vim to best-effort guess the indentation
 set pastetoggle=<F2> " enable paste mode
 
-" set wildmenu "graphical auto complete menu
+" set wildmenu "graphical auto omplete menu
 " set lazyredraw "redraws the screne when it needs to
 " set showmatch "highlights matching brackets
 " set incsearch "search as characters are entered
@@ -370,19 +352,3 @@ let g:vimtex_compiler_progname = 'nvr'
 " zathura can be downloaded on latex with the command 'sudo apt install zathura'
 " Make sure that you download latexmk
 let g:vimtex_view_method = 'zathura'
-" NCM2
-augroup NCM2
-    autocmd!
-    " some other settings...
-    " uncomment this block if you use vimtex for LaTex
-    " autocmd Filetype tex call ncm2#register_source({
-    "     \ 'name': 'vimtex',
-    "     \ 'priority': 8,
-    "     \ 'scope': ['tex'],
-    "     \ 'mark': 'tex',
-    "     \ 'word_pattern': '\w+',
-    "     \ 'complete_pattern': g:vimtex#re#ncm2,
-    "     \ 'on_complete': ['ncm2#on_complete#omni', 'vimtex#complete#omnifunc'],
-    "     \ })
-augroup END
-
