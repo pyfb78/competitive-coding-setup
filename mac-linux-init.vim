@@ -66,6 +66,7 @@ Plug 'maralla/completor.vim', { 'for' :
         \ 'gitcommit', 'gitconfig'] }
     let g:completor_filetype_map = {}
 " Plug 'vim-latex/vim-latex'
+Plug 'latex-lsp/texlab'
 set spelllang=en_us
 call plug#end()
 
@@ -359,8 +360,7 @@ autocmd BufEnter * if bufname('#') =~ 'NERD_tree_\d\+' && bufname('%') !~ 'NERD_
 let g:NERDTreeWinSize=60
 set guifont=DroidSansMono\ Nerd\ Font\ Complete\ Mono\ 11
 let g:airline_powerline_fonts = 1
-"If I go to a different file in a different directory, the working directory
-"is the one I changed 
+"If I go to a different file in a different directory, the working directory is the one I changed 
 set autochdir
 let g:NERDTreeUseSimpleIndicator = 1
 let g:NERDTreeGitStatusUseNerdFonts = 1
@@ -376,21 +376,21 @@ let g:vimtex_latexmk_continuous = 1
 let g:vimtex_compiler_progname = 'nvr'
 " use skim if you are on Mac
 " zathura can be downloaded on latex with the command 'sudo apt install zathura'
-" Install latexmk 
+" Make sure that you download latexmk
 let g:vimtex_view_method = 'zathura'
 " NCM2
 augroup NCM2
     autocmd!
     " some other settings...
     " uncomment this block if you use vimtex for LaTex
-    autocmd Filetype tex call ncm2#register_source({
-        \ 'name': 'vimtex',
-        \ 'priority': 8,
-        \ 'scope': ['tex'],
-        \ 'mark': 'tex',
-        \ 'word_pattern': '\w+',
-        \ 'complete_pattern': g:vimtex#re#ncm2,
-        \ 'on_complete': ['ncm2#on_complete#omni', 'vimtex#complete#omnifunc'],
-        \ })
+    " autocmd Filetype tex call ncm2#register_source({
+    "     \ 'name': 'vimtex',
+    "     \ 'priority': 8,
+    "     \ 'scope': ['tex'],
+    "     \ 'mark': 'tex',
+    "     \ 'word_pattern': '\w+',
+    "     \ 'complete_pattern': g:vimtex#re#ncm2,
+    "     \ 'on_complete': ['ncm2#on_complete#omni', 'vimtex#complete#omnifunc'],
+    "     \ })
 augroup END
 
