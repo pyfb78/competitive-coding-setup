@@ -12,6 +12,34 @@ Plug 'preservim/nerdcommenter'
 Plug 'ervandew/supertab'
 Plug 'jiangmiao/auto-pairs'
 Plug 'Vimjas/vim-python-pep8-indent'
+" ALE + CoC
+let g:ale_sign_column_always = 1
+let g:ale_sign_error = '#'
+let g:ale_sign_warning = '>'
+let g:ale_echo_msg_error_str = 'E'
+let g:ale_echo_msg_warning_str = 'W'
+let g:ale_echo_msg_format = '[%severity%] [%linter%] %s'
+let g:ale_disable_lsp = 1
+let g:ale_linters = {'python': []}
+set omnifunc=ale#completion#OmniFunc
+let g:coc_global_extensions = [
+            \ 'coc-css',
+            \ 'coc-html',
+            \ 'coc-htmldjango',
+            \ 'coc-json',
+            \ 'coc-markdownlint',
+            \ 'coc-pyright',
+            \ 'coc-sh',
+            \ 'coc-snippets',
+            \ 'coc-tabnine',
+            \ 'coc-texlab',
+            \ 'coc-tsserver',
+            \ 'coc-vimlsp',
+            \ 'coc-yaml',
+            \ 'coc-clangd',
+            \ 'coc-pyright'
+            \ ]
+Plug 'dense-analysis/ale'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'preservim/nerdtree'
 Plug 'vwxyutarooo/nerdtree-devicons-syntax'
@@ -33,6 +61,11 @@ Plug 'roxma/nvim-yarp'
 " our wiki page for a list of sources: https://github.com/ncm2/ncm2/wiki
 Plug 'ncm2/ncm2-bufword'
 Plug 'ncm2/ncm2-path'
+Plug 'maralla/completor.vim', { 'for' :
+        \ ['tex', 'typescript', 'go',
+        \ 'gitcommit', 'gitconfig'] }
+    let g:completor_filetype_map = {}
+" Plug 'vim-latex/vim-latex'
 set spelllang=en_us
 call plug#end()
 
@@ -341,12 +374,9 @@ let g:tex_conceal = ''
 let g:vimtex_fold_manual = 1
 let g:vimtex_latexmk_continuous = 1
 let g:vimtex_compiler_progname = 'nvr'
-" use SumatraPDF if you are on Windows
 " use skim if you are on Mac
-" zathura can be downloaded on latex with the command 'sudo apt install zathura'\
-"Make sure that you download latexmk
-"sudo apt-get install texlive
-"sudo apt-get install latexmk
+" zathura can be downloaded on latex with the command 'sudo apt install zathura'
+" Install latexmk 
 let g:vimtex_view_method = 'zathura'
 " NCM2
 augroup NCM2
