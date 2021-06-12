@@ -60,7 +60,7 @@ set clipboard=unnamedplus
 set foldmethod=indent
 set foldlevel=99
 
-au BufNewFile,BufRead *.py,*.java,*.cpp,*.c,*.cs,*.rkt,*.h,*.html,*.tex
+au BufNewFile,BufRead *.py,*.java,*.cpp,*.c,*.cs,*.rkt,*.h,*.html,*.tex,*.vim,*.vimrc
     \ set tabstop=4 |
     \ set softtabstop=4 |
     \ set shiftwidth=4 |
