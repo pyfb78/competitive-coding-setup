@@ -153,8 +153,8 @@ augroup compileandrun
     autocmd filetype cpp nnoremap <buffer> <f7> :w <bar> !g++ -std=c++17 %<cr><cr> :vnew <bar> :te ./a.out <cr>i
     autocmd filetype cpp nnoremap <buffer> <f8> :vnew <bar> :te ./a.out <cr>i
     autocmd Filetype python nnoremap <buffer> <f8> :w<CR>:vsplit<cr>:vert ter python3 "%"<CR>i
-    autocmd filetype tex nnoremap <buffer> <f8> :w <bar> :VimtexCompile <cr>
-    autocmd filetype tex nnoremap <buffer> <f7> :w <bar>!pdflatex %:r<cr>:w <bar>!asy -render=0 %:r-*.asy<cr>:w <bar> !pdflatex %:r<cr><cr>
+    autocmd filetype tex nnoremap <buffer> <f7> :w <bar> :VimtexCompile <cr>
+    autocmd filetype tex nnoremap <buffer> <f8> :w <bar>!pdflatex %:r<cr>:w <bar>!asy -render=0 %:r-*.asy<cr>:w <bar> !pdflatex %:r<cr><cr>:w<cr>
 augroup END
 "Python autocomplete
 let g:python3_host_prog='/usr/bin/python3'
