@@ -13,34 +13,23 @@ Plug 'ervandew/supertab'
 Plug 'jiangmiao/auto-pairs'
 Plug 'Vimjas/vim-python-pep8-indent'
 " ALE + CoC
-let g:ale_sign_column_always = 1
-let g:ale_sign_error = '#'
-let g:ale_sign_warning = '>'
-let g:ale_echo_msg_error_str = 'E'
-let g:ale_echo_msg_warning_str = 'W'
-let g:ale_echo_msg_format = '[%severity%] [%linter%] %s'
-let g:ale_disable_lsp = 1
-let g:ale_linters = {'python': []}
-let g:ale_linters = {'tex': []}
-set omnifunc=ale#completion#OmniFunc
+" " let g:ale_sign_column_always = 1
+" let g:ale_sign_error = '#'
+" let g:ale_sign_warning = '>'
+" let g:ale_echo_msg_error_str = 'E'
+" let g:ale_echo_msg_warning_str = 'W'
+" let g:ale_echo_msg_format = '[%severity%] [%linter%] %s'
+" let g:ale_disable_lsp = 1
+" let g:ale_linters = {'python': []}
+" let g:ale_linters = {'tex': []}
+" set omnifunc=rubycomplete#Complete
 let g:coc_global_extensions = [
-            \ 'coc-css',
-            \ 'coc-html',
-            \ 'coc-htmldjango',
-            \ 'coc-json',
-            \ 'coc-markdownlint',
             \ 'coc-pyright',
-            \ 'coc-sh',
-            \ 'coc-snippets',
             \ 'coc-tabnine',
             \ 'coc-texlab',
-            \ 'coc-tsserver',
-            \ 'coc-vimlsp',
-            \ 'coc-yaml',
             \ 'coc-clangd',
-            \ 'coc-pyright'
             \ ]
-Plug 'dense-analysis/ale'
+" Plug 'dense-analysis/ale'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'preservim/nerdtree'
 Plug 'vwxyutarooo/nerdtree-devicons-syntax'
@@ -56,23 +45,23 @@ Plug 'roxma/nvim-yarp'
     " enable ncm2 for all buffers
     autocmd BufEnter * call ncm2#enable_for_buffer()
     " IMPORTANT: :help Ncm2PopupOpen for more information
-    set completeopt=noinsert,menuone,noselect
+    " set completeopt=noinsert,menuone,noselect
 
 " NOTE: you need to install completion sources to get completions. Check
 " our wiki page for a list of sources: https://github.com/ncm2/ncm2/wiki
 Plug 'ncm2/ncm2-bufword'
 Plug 'ncm2/ncm2-path'
-Plug 'maralla/completor.vim', { 'for' :
-        \ ['tex', 'typescript', 'go',
-        \ 'gitcommit', 'gitconfig'] }
-    let g:completor_filetype_map = {}
+" Plug 'maralla/completor.vim', { 'for' :
+"         \ ['tex', 'typescript', 'go',
+"         \ 'gitcommit', 'gitconfig'] }
+"     let g:completor_filetype_map = {}
 " Plug 'vim-latex/vim-latex'
 Plug 'latex-lsp/texlab'
-set spelllang=en_us
+" set spelllang=en_us
 call plug#end()
 
-filetype plugin on
-
+set nocompatible
+filetype plugin indent on
 let mapleader = "-"
 let maplocalleader = "\\"
 
@@ -160,10 +149,10 @@ set smartindent " allow vim to best-effort guess the indentation
 set pastetoggle=<F2> " enable paste mode
 
 " set wildmenu "graphical auto complete menu
-set lazyredraw "redraws the screne when it needs to
-set showmatch "highlights matching brackets
-set incsearch "search as characters are entered
-set hlsearch "highlights matching searches
+" set lazyredraw "redraws the screne when it needs to
+" set showmatch "highlights matching brackets
+" set incsearch "search as characters are entered
+" set hlsearch "highlights matching searches
 
 "clears highlights
 nnoremap // :noh<return>
@@ -182,7 +171,8 @@ augroup compileandrun
     autocmd filetype cpp nnoremap <buffer> <f7> :w <bar> !g++ -std=c++17 %<cr><cr> :vnew <bar> :te ./a.out <cr>i
     autocmd filetype cpp nnoremap <buffer> <f8> :vnew <bar> :te ./a.out <cr>i
     autocmd Filetype python nnoremap <buffer> <f8> :w<CR>:vsplit<cr>:vert ter python3 "%"<CR>i
-    autocmd filetype tex nnoremap <buffer> <f8> :w <CR> :VimtexCompile <CR>
+    autocmd filetype tex nnoremap <buffer> <f7> :w <bar> !asy -render=0 "%:r"-*.asy <cr><cr> :VimtexCompile <CR><cr>
+    autocmd filetype tex nnoremap <buffer> <F8> :VimtexView <cr>
 augroup END
 "Python autocomplete
 let g:python3_host_prog='/usr/bin/python3'
