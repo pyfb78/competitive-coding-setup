@@ -21,6 +21,7 @@ let g:ale_echo_msg_warning_str = 'W'
 let g:ale_echo_msg_format = '[%severity%] [%linter%] %s'
 let g:ale_disable_lsp = 1
 let g:ale_linters = {'python': []}
+let g:ale_linters = {'tex': []}
 set omnifunc=ale#completion#OmniFunc
 let g:coc_global_extensions = [
             \ 'coc-css',
@@ -360,7 +361,8 @@ autocmd BufEnter * if bufname('#') =~ 'NERD_tree_\d\+' && bufname('%') !~ 'NERD_
 let g:NERDTreeWinSize=60
 set guifont=DroidSansMono\ Nerd\ Font\ Complete\ Mono\ 11
 let g:airline_powerline_fonts = 1
-"If I go to a different file in a different directory, the working directory is the one I changed 
+"If I go to a different file in a different directory, the working directory
+"is the one I changed 
 set autochdir
 let g:NERDTreeUseSimpleIndicator = 1
 let g:NERDTreeGitStatusUseNerdFonts = 1
