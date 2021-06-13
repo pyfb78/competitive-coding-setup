@@ -150,7 +150,7 @@ nnoremap <buffer> <localleader>w :set wrap!<cr>
 "Run code 
 augroup compileandrun
     autocmd!
-    autocmd filetype cpp nnoremap <buffer> <f7> :w <bar> !g++ -std=c++17 %<cr><cr> :vnew <bar> :te ./a.out <cr>i
+    autocmd filetype cpp nnoremap <buffer> <f7> :w <bar> !g++ -stdc++17 %<cr><cr> :vnew <bar> :te ./a.out <cr>i
     autocmd filetype cpp nnoremap <buffer> <f8> :vnew <bar> :te ./a.out <cr>i
     autocmd Filetype python nnoremap <buffer> <f8> :w<CR>:vsplit<cr>:vert ter python3 "%"<CR>i
     autocmd filetype tex nnoremap <buffer> <f8> :w <bar> :VimtexCompile <cr>
@@ -346,12 +346,14 @@ let g:NERDTreeGitStatusWithFlags = 1
 "Make sure you download latex
 "sudo apt install texlive texlive-latex-extra texlive-fonts-extra \
 "texlive-latex-recommended texlive-science texlive-fonts-extra tipa
-"Latex Config
-" let g:vimtex_quickfix_ignore_filters = [
-"           \ 'Marginpar on page',
-"           \ 'LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <24> not available size <24.88> substituted on input line 19.'
-"           \]
+"
+"or you can use
+"
+"sudo apt-get install texlive
+"
+"Also download latexmk which is downloaded using "sudo apt-get install latexmk"
 
+"Latex Config
 let g:vimtex_quickfix_enabled = 0
 let g:tex_flavor  = 'latex'
 let g:tex_conceal = ''
@@ -360,5 +362,4 @@ let g:vimtex_latexmk_continuous = 1
 let g:vimtex_compiler_progname = 'nvr'
 " use skim if you are on Mac
 " zathura can be downloaded on latex with the command 'sudo apt install zathura'
-" Make sure that you download latexmk
 let g:vimtex_view_method = 'zathura'
