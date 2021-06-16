@@ -156,7 +156,9 @@ augroup compileandrun
     autocmd filetype tex nnoremap <buffer> <f8> :w <bar> :VimtexCompile <cr>
     "PDFlatex comes with texlive which is downloaded below so its all good 
     "Use the command sudo apt-get install texlive-latex-extra
-    autocmd filetype tex nnoremap <buffer> <f7> :w <bar>!pdflatex %:r<cr>:w <bar>!asy -render=0 %:r-*.asy<cr>:w <bar> !pdflatex %:r<cr><cr>:w<cr>
+    autocmd filetype tex nnoremap <buffer> <f7> :w <bar>!pdflatex %:r<cr>:w <bar>!asy %:r-*.asy<cr>:w <bar> !pdflatex %:r<cr><cr>:w<cr>
+    "if there is an error with the first one, use the bottom one
+    "autocmd filetype tex nnoremap <buffer> <f7> :w <bar>!pdflatex %:r<cr>:w <bar>!asy -render=0 %:r-*.asy<cr>:w <bar> !pdflatex %:r<cr><cr>:w<cr>
 augroup END
 "Python autocomplete
 let g:python3_host_prog='/usr/bin/python3'
