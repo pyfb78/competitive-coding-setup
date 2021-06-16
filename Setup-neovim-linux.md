@@ -18,7 +18,7 @@ Afterwards use the command
 This will basically take you to the configuration file for neovim. If you want, you can use the `ls` command to see what is inside of it. There will be nothing. You should create a file using 
 `touch init.vim`
 
-Now, you will want to download vim-plug. This will make your life easier when downloading plugins to make neovim look nicer. To download vim-plug, you will want to run the command; (make sure you have git, curl and pip installed)
+Now, you will want to download vim-plug. This will make your life easier when downloading plugins to make neovim look nicer. To download vim-plug, you will want to run the command; (make sure you have git, curl, pip, nodejs and npm installed)
 
 `curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim`
 
