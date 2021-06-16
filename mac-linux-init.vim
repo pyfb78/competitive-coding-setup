@@ -155,7 +155,6 @@ augroup compileandrun
     autocmd Filetype python nnoremap <buffer> <f8> :w<CR>:vsplit<cr>:vert ter python3 "%"<CR>i
     autocmd filetype tex nnoremap <buffer> <f8> :w <bar> :VimtexCompile <cr>
     "PDFlatex comes with texlive which is downloaded below so its all good 
-    "Use the command sudo apt-get install texlive-latex-extra
     autocmd filetype tex nnoremap <buffer> <f7> :w <bar>!pdflatex %:r<cr>:w <bar>!asy %:r-*.asy<cr>:w <bar> !pdflatex %:r<cr><cr>:w<cr>
     "if there is an error with the first one, use the bottom one
     "autocmd filetype tex nnoremap <buffer> <f7> :w <bar>!pdflatex %:r<cr>:w <bar>!asy -render=0 %:r-*.asy<cr>:w <bar> !pdflatex %:r<cr><cr>:w<cr>
@@ -347,13 +346,8 @@ autocmd FileType nerdtree setlocal nolist
 let g:NERDTreeGitStatusWithFlags = 1
  
 "Make sure you download latex
-"sudo apt install texlive texlive-latex-extra texlive-fonts-extra \
-"texlive-latex-recommended texlive-science texlive-fonts-extra tipa
-"
-"or you can use
-"
-"sudo apt-get install texlive
-"
+"sudo apt install texlive texlive-latex-extra texlive-fonts-extra \texlive-latex-recommended texlive-science texlive-fonts-extra tipa
+
 "Also download latexmk which is downloaded using "sudo apt-get install latexmk"
 
 "Latex Config
