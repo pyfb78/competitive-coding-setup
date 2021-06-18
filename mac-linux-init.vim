@@ -4,11 +4,9 @@ Plug 'junegunn/fzf.vim'
 Plug 'bluz71/vim-nightfly-guicolors'
 Plug 'sheerun/vim-polyglot'
 Plug 'tpope/vim-surround'
-Plug 'Raimondi/delimitMate'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'rafi/awesome-vim-colorschemes'
-Plug 'preservim/nerdcommenter'
 Plug 'ervandew/supertab'
 Plug 'jiangmiao/auto-pairs'
 Plug 'Vimjas/vim-python-pep8-indent'
@@ -20,12 +18,12 @@ let g:ale_echo_msg_error_str = 'E'
 let g:ale_echo_msg_warning_str = 'W'
 let g:ale_echo_msg_format = '[%severity%] [%linter%] %s'
 let g:ale_disable_lsp = 1
-let g:ale_linters = {'python': []}
-let g:ale_linters = {'tex': []}
+let g:ale_linters = {'python': ['pyright']}
+let g:ale_linters = {'tex': ['texlabs']}
 let g:coc_global_extensions = [
             \ 'coc-pyright',
             \ 'coc-texlab',
-            \ 'coc-clangd',
+            \ 'coc-clangd'
             \ ]
 Plug 'dense-analysis/ale'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -33,11 +31,8 @@ Plug 'preservim/nerdtree'
 Plug 'vwxyutarooo/nerdtree-devicons-syntax'
 Plug 'tpope/vim-commentary'
 Plug 'trusktr/seti.vim'
-Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'ryanoasis/vim-devicons'
 Plug 'lervag/vimtex'
-Plug 'Konfekt/FastFold'
-Plug 'matze/vim-tex-fold'
 Plug 'latex-lsp/texlab'
 set spelllang=en_us
 call plug#end()
@@ -46,7 +41,7 @@ set nocompatible
 filetype plugin indent on
 let mapleader = "-"
 let maplocalleader = "\\"
-
+set omnifunc='sdfasdlfjasdl'
 "split navigations
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
@@ -150,14 +145,14 @@ nnoremap <buffer> <localleader>w :set wrap!<cr>
 "Run code 
 augroup compileandrun
     autocmd!
-    autocmd filetype cpp nnoremap <buffer> <f7> :w <bar> !g++ -std++17 %<cr><cr> :vnew <bar> :te ./a.out <cr>i
+    autocmd filetype cpp nnoremap <buffer> <f7> :w <bar> !g++ -std+17 %<cr><cr> :vnew <bar> :te ./a.out <cr>i
     autocmd filetype cpp nnoremap <buffer> <f8> :vnew <bar> :te ./a.out <cr>i
     autocmd Filetype python nnoremap <buffer> <f8> :w<CR>:vsplit<cr>:vert ter python3 "%"<CR>i
     autocmd filetype tex nnoremap <buffer> <f8> :w <bar> :VimtexCompile <cr>
     "PDFlatex comes with texlive which is downloaded below so its all good 
     autocmd filetype tex nnoremap <buffer> <f7> :w <bar>!pdflatex %:r<cr>:w <bar>!asy %:r-*.asy<cr>:w <bar> !pdflatex %:r<cr><cr>:w<cr>
     "if there is an error with the first one, use the bottom one
-    "autocmd filetype tex nnoremap <buffer> <f7> :w <bar>!pdflatex %:r<cr>:w <bar>!asy -render=0 %:r-*.asy<cr>:w <bar> !pdflatex %:r<cr><cr>:w<cr>
+    " autocmd filetype tex nnoremap <buffer> <f7> :w <bar>!pdflatex %:r<cr>:w <bar>!asy -render=0 %:r-*.asy<cr>:w <bar> !pdflatex %:r<cr><cr>:w<cr>
 augroup END
 "Python autocomplete
 let g:python3_host_prog='/usr/bin/python3'
@@ -319,7 +314,6 @@ nnoremap <silent><nowait> <space>j  :<C-u>CocNext<CR>
 nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list.
 nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>o
-
 "NerdTree
 " Start NERDTree when Vim is started without file arguments.
 autocmd StdinReadPre * let s:std_in=1
@@ -338,7 +332,7 @@ set guifont=DroidSansMono\ Nerd\ Font\ Complete\ Mono\ 11
 let g:airline_powerline_fonts = 1
 "If I go to a different file in a different directory, the working directory
 "is the one I changed 
-set autochdir
+set autochdir 
 let g:NERDTreeUseSimpleIndicator = 1
 let g:NERDTreeGitStatusUseNerdFonts = 1
 autocmd FileType nerdtree setlocal nolist
@@ -360,3 +354,6 @@ let g:vimtex_compiler_progname = 'nvr'
 " use skim if you are on Mac
 " zathura can be downloaded on latex with the command 'sudo apt install zathura'
 let g:vimtex_view_method = 'zathura'
+
+au FileType tex let b:AutoPairs = AutoPairsDefine({"$":"$","$$":"$$"})
+
