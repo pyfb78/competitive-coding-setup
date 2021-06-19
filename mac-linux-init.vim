@@ -150,9 +150,9 @@ augroup compileandrun
     autocmd Filetype python nnoremap <buffer> <f8> :w<CR>:vsplit<cr>:vert ter python3 "%"<CR>i
     autocmd filetype tex nnoremap <buffer> <f8> :w <bar> :VimtexCompile <cr>
     "PDFlatex comes with texlive which is downloaded below so its all good 
-    autocmd filetype tex nnoremap <buffer> <f7> :w <bar>!pdflatex %:r<cr>:w <bar>!asy %:r-*.asy<cr>:w <bar> !pdflatex %:r<cr><cr>:w<cr>
+    autocmd filetype tex nnoremap <buffer> <f7> :w <bar>!pdflatex %:r<cr>:w <bar>!asy -noV %:r-*.asy<cr>:w <bar> !pdflatex %:r<cr><cr>:w<cr>
     "if there is an error with the first one, use the bottom one
-    " autocmd filetype tex nnoremap <buffer> <f7> :w <bar>!pdflatex %:r<cr>:w <bar>!asy -render=0 %:r-*.asy<cr>:w <bar> !pdflatex %:r<cr><cr>:w<cr>
+    " autocmd filetype tex nnoremap <buffer> <f7> :w <bar>!pdflatex %:r<cr>:w <bar>!asy -noV -render=0 %:r-*.asy<cr>:w <bar> !pdflatex %:r<cr><cr>:w<cr>
 augroup END
 "Python autocomplete
 let g:python3_host_prog='/usr/bin/python3'
@@ -355,5 +355,5 @@ let g:vimtex_compiler_progname = 'nvr'
 " zathura can be downloaded on latex with the command 'sudo apt install zathura'
 let g:vimtex_view_method = 'zathura'
 
-au FileType tex let b:AutoPairs = AutoPairsDefine({"$":"$","$$":"$$"})
+au FileType tex let b:AutoPairs = AutoPairsDefine({'$':'$','\\[':'\\]'})
 
