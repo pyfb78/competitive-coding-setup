@@ -34,11 +34,13 @@ Plug 'trusktr/seti.vim'
 Plug 'ryanoasis/vim-devicons'
 Plug 'lervag/vimtex'
 Plug 'latex-lsp/texlab'
+" Plug 'LunarWatcher/auto-pairs'
 set spelllang=en_us
 call plug#end()
 
 set nocompatible
 filetype plugin indent on
+filetype plugin on
 let mapleader = "-"
 let maplocalleader = "\\"
 set omnifunc='sdfasdlfjasdl'
@@ -50,7 +52,7 @@ nnoremap <C-H> <C-W><C-H>
 set mouse=a "mouse support"
 set splitbelow
 set splitright
-set clipboard=unnamedplus
+set clipboard=unnamed
 " Enable folding
 set foldmethod=indent
 set foldlevel=99
@@ -355,5 +357,6 @@ let g:vimtex_compiler_progname = 'nvr'
 " zathura can be downloaded on latex with the command 'sudo apt install zathura'
 let g:vimtex_view_method = 'zathura'
 
-au FileType tex let b:AutoPairs = AutoPairsDefine({'$':'$','\\[':'\\]'})
-
+"switch back to this one later when it is fixed
+au FileType tex let b:AutoPairs = AutoPairsDefine({'$':'$','\\[':'\\]','\\(':'\\)'})
+" let g:AutoPairs = autopairs#AutoPairsDefine([{'open': '\\[', 'close': '\]', 'filetype': 'tex'}])
