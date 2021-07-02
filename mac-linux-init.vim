@@ -34,6 +34,7 @@ Plug 'trusktr/seti.vim'
 Plug 'ryanoasis/vim-devicons'
 Plug 'lervag/vimtex'
 Plug 'latex-lsp/texlab'
+Plug '907th/vim-auto-save'
 " Plug 'LunarWatcher/auto-pairs'
 set spelllang=en_us
 call plug#end()
@@ -57,6 +58,7 @@ set clipboard=unnamed
 set foldmethod=indent
 set foldlevel=99
 
+autocmd FileType tex setlocal spell
 au BufNewFile,BufRead *.py,*.java,*.cpp,*.c,*.cs,*.rkt,*.h,*.html,*.tex,*.vim,*.vimrc
     \ set tabstop=4 |
     \ set softtabstop=4 |
@@ -358,3 +360,7 @@ let g:vimtex_view_method = 'zathura'
 "switch back to this one later when it is fixed
 au FileType tex let b:AutoPairs = AutoPairsDefine({'$':'$','\\[':'\\]','\\(':'\\)'})
 " let g:AutoPairs = autopairs#AutoPairsDefine([{'open': '\\[', 'close': '\]', 'filetype': 'tex'}])
+
+"Vim auto save
+let g:auto_save = 1
+let g:auto_save_events=["TextChangedI", "CompleteDone"]
