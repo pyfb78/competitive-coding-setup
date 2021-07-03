@@ -34,7 +34,6 @@ Plug 'trusktr/seti.vim'
 Plug 'ryanoasis/vim-devicons'
 Plug 'lervag/vimtex'
 Plug 'latex-lsp/texlab'
-Plug '907th/vim-auto-save'
 " Plug 'LunarWatcher/auto-pairs'
 set spelllang=en_us
 call plug#end()
@@ -150,7 +149,7 @@ augroup compileandrun
     autocmd filetype cpp nnoremap <buffer> <f7> :w <bar> !g++ -std=c++17 -Wshadow -Wall -O2 -Wno-unused-result %<cr><cr> :vnew <bar> :te ./a.out <cr>i
     autocmd filetype cpp nnoremap <buffer> <f8> :vnew <bar> :te ./a.out <cr>i
     autocmd Filetype python nnoremap <buffer> <f8> :w<CR>:vsplit<cr>:vert ter python3 "%"<CR>i
-    autocmd filetype tex nnoremap <buffer> <f8> :w <bar> \ll <cr>
+    autocmd filetype tex nnoremap <buffer> <f8> :w <bar>:VimtexCompile <cr>
     "PDFlatex comes with texlive which is downloaded below so its all good 
     autocmd filetype tex nnoremap <buffer> <f7> :w <bar>!pdflatex %:r<cr>:w <bar>!asy -noV %:r-*.asy<cr>:w <bar> !pdflatex %:r<cr><cr>:w<cr>
     "if there is an error with the first one, use the bottom one
@@ -358,9 +357,23 @@ let g:vimtex_compiler_progname = 'nvr'
 let g:vimtex_view_method = 'zathura'
 
 "switch back to this one later when it is fixed
-au FileType tex let b:AutoPairs = AutoPairsDefine({'$':'$','\\[':'\\]','\\(':'\\)'})
+au FileType tex let b:AutoPairs = AutoPairsDefine({'$':'$','\\[':'\\]'})
 " let g:AutoPairs = autopairs#AutoPairsDefine([{'open': '\\[', 'close': '\]', 'filetype': 'tex'}])
 
 "Vim auto save
-let g:auto_save = 1
-let g:auto_save_events=["TextChangedI", "CompleteDone"]
+"If vim starts to get slow, change the autosave_seconds value higher
+" Save on lost focus/exit 
+" autocmd FocusLost,VimLeavePre,TextChangedI,InsertLeave,CursorHoldI * silent! w
+" autocmd CursorHoldI * silent! w 
+" Also, save 3 times per second if there are changes
+let g:autosave_seconds = 0.3 
+au BufRead,BufNewFile * let b:start_time=localtime()
+au CursorHold * silent! call UpdateFile()
+function! UpdateFile()
+  if ((localtime() - b:start_time) >= g:autosave_seconds)
+    update
+    let b:start_time=localtime()
+  endif
+endfunction
+au BufWritePre * let b:start_time=localtime()
+
