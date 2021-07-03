@@ -150,7 +150,7 @@ augroup compileandrun
     autocmd filetype cpp nnoremap <buffer> <f7> :w <bar> !g++ -std=c++17 -Wshadow -Wall -O2 -Wno-unused-result %<cr><cr> :vnew <bar> :te ./a.out <cr>i
     autocmd filetype cpp nnoremap <buffer> <f8> :vnew <bar> :te ./a.out <cr>i
     autocmd Filetype python nnoremap <buffer> <f8> :w<CR>:vsplit<cr>:vert ter python3 "%"<CR>i
-    autocmd filetype tex nnoremap <buffer> <f8> :w <bar> :VimtexCompile <cr>
+    autocmd filetype tex nnoremap <buffer> <f8> :w <bar> \ll <cr>
     "PDFlatex comes with texlive which is downloaded below so its all good 
     autocmd filetype tex nnoremap <buffer> <f7> :w <bar>!pdflatex %:r<cr>:w <bar>!asy -noV %:r-*.asy<cr>:w <bar> !pdflatex %:r<cr><cr>:w<cr>
     "if there is an error with the first one, use the bottom one
