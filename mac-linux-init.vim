@@ -342,6 +342,7 @@ let g:NERDTreeGitStatusWithFlags = 1
  
 "Make sure you download latex
 "sudo apt install texlive texlive-latex-extra texlive-fonts-extra \texlive-latex-recommended texlive-science texlive-fonts-extra tipa texinfo
+"sudo apt-get install texlive-full 
 
 "Also download latexmk which is downloaded using "sudo apt-get install latexmk"
 
