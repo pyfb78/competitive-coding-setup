@@ -56,7 +56,7 @@ set clipboard=unnamed
 " Enable folding
 set foldmethod=indent
 set foldlevel=99
-
+nnoremap <silent> <esc> :noh<cr><esc>
 autocmd FileType tex setlocal spell
 au BufNewFile,BufRead *.py,*.java,*.cpp,*.c,*.cs,*.rkt,*.h,*.html,*.tex,*.vim,*.vimrc
     \ set tabstop=4 |
@@ -357,23 +357,21 @@ let g:vimtex_compiler_progname = 'nvr'
 let g:vimtex_view_method = 'zathura'
 
 "switch back to this one later when it is fixed
-au FileType tex let b:AutoPairs = AutoPairsDefine({'$':'$','\\[':'\\]'})
+au FileType tex let b:AutoPairs = AutoPairsDefine({'$':'$'})
 " let g:AutoPairs = autopairs#AutoPairsDefine([{'open': '\\[', 'close': '\]', 'filetype': 'tex'}])
 
 "Vim auto save
 "If vim starts to get slow, change the autosave_seconds value higher
 " Save on lost focus/exit 
 " autocmd FocusLost,VimLeavePre,TextChangedI,InsertLeave,CursorHoldI * silent! w
-" autocmd CursorHoldI * silent! w 
 " Also, save 3 times per second if there are changes
-let g:autosave_seconds = 0.3 
-au BufRead,BufNewFile * let b:start_time=localtime()
-au CursorHold * silent! call UpdateFile()
-function! UpdateFile()
-  if ((localtime() - b:start_time) >= g:autosave_seconds)
-    update
-    let b:start_time=localtime()
-  endif
-endfunction
-au BufWritePre * let b:start_time=localtime()
-
+" let g:autosave_seconds = 0.3 
+" au BufRead,BufNewFile * let b:start_time=localtime()
+" au CursorHold * silent! call UpdateFile()
+" function! UpdateFile()
+"   if ((localtime() - b:start_time) >= g:autosave_seconds)
+"     update
+"     let b:start_time=localtime()
+"   endif
+" endfunction
+" au BufWritePre * let b:start_time=localtime()
