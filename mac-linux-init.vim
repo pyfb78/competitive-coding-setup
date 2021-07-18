@@ -18,8 +18,8 @@ let g:ale_echo_msg_error_str = 'E'
 let g:ale_echo_msg_warning_str = 'W'
 let g:ale_echo_msg_format = '[%severity%] [%linter%] %s'
 let g:ale_disable_lsp = 1
-let g:ale_linters = {'python': ['pyright']}
-let g:ale_linters = {'tex': ['texlabs']}
+let g:ale_linters = {'python': []}
+" let g:ale_linters = {'tex': ['texlabs']}
 let g:coc_global_extensions = [
             \ 'coc-pyright',
             \ 'coc-texlab',
@@ -342,7 +342,6 @@ let g:NERDTreeGitStatusWithFlags = 1
  
 "Make sure you download latex
 "sudo apt install texlive texlive-latex-extra texlive-fonts-extra \texlive-latex-recommended texlive-science texlive-fonts-extra tipa texinfo
-"sudo apt-get install texlive-full 
 
 "Also download latexmk which is downloaded using "sudo apt-get install latexmk"
 
