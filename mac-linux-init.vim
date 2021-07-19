@@ -16,7 +16,7 @@ let g:ale_sign_error = '>>'
 let g:ale_sign_warning = '⚠'
 let g:ale_echo_msg_error_str = ' >> '
 let g:ale_echo_msg_warning_str = ' ⚠ ' 
-let g:ale_echo_msg_format = '[%severity%] [%linter%] %s'
+let g:ale_echo_msg_format = '[%severity%] %s'
 let g:ale_disable_lsp = 1
 let g:ale_linters = {'python': []}
 " let g:ale_linters = {'tex': ['texlabs']}
@@ -375,3 +375,4 @@ au FileType tex let b:AutoPairs = AutoPairsDefine({'$':'$'})
 "   endif
 " endfunction
 " au BufWritePre * let b:start_time=localtime()
+"Control V is past in vim 
