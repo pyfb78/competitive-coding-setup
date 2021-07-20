@@ -11,11 +11,15 @@ Plug 'ervandew/supertab'
 Plug 'jiangmiao/auto-pairs'
 Plug 'Vimjas/vim-python-pep8-indent'
 " ALE + CoC
+let g:coc_status_error_sign = '--'
+let g:coc_status_warning_sign = '>>'
 let g:ale_sign_column_always = 1
 let g:ale_sign_error = '>>'
-let g:ale_sign_warning = '⚠'
+" let g:ale_sign_warning = '⚠'
+let g:ale_sign_warning='--'
 let g:ale_echo_msg_error_str = ' >> '
-let g:ale_echo_msg_warning_str = ' ⚠ ' 
+" let g:ale_echo_msg_warning_str = ' ⚠ ' 
+let g:ale_echo_msg_warning_str='--'
 let g:ale_echo_msg_format = '[%severity%] %s'
 let g:ale_disable_lsp = 1
 let g:ale_linters = {'python': []}
@@ -58,7 +62,7 @@ set foldmethod=indent
 set foldlevel=99
 nnoremap <silent> <esc> :noh<cr><esc>
 autocmd FileType tex setlocal spell
-au BufNewFile,BufRead *.py,*.java,*.cpp,*.c,*.cs,*.rkt,*.h,*.html,*.tex,*.vim,*.vimrc
+au BufNewFile,BufRead *.py,*.java,*.cpp,*.c,*.css,*.rkt,*.h,*.html,*.tex,*.vim,*.vimrc
     \ set tabstop=4 |
     \ set softtabstop=4 |
     \ set shiftwidth=4 |
