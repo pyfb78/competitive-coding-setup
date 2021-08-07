@@ -25,10 +25,10 @@ let g:ale_disable_lsp = 1
 let g:ale_linters = {'python': []}
 " let g:ale_linters = {'tex': ['texlabs']}
 let g:coc_global_extensions = [
-            \ 'coc-pyright',
-            \ 'coc-texlab',
-            \ 'coc-clangd'
-            \ ]
+        \ 'coc-pyright',
+        \ 'coc-texlab',
+        \ 'coc-clangd'
+        \ ]
 Plug 'dense-analysis/ale'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'preservim/nerdtree'
@@ -48,6 +48,7 @@ filetype plugin on
 let mapleader = "-"
 let maplocalleader = "\\"
 set omnifunc='sdfasdlfjasdl'
+set modifiable 
 "split navigations
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
@@ -319,6 +320,8 @@ nnoremap <silent><nowait> <space>j  :<C-u>CocNext<CR>
 nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list.
 nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>o
+let g:coc_snippet_next = ','
+let g:coc_snippet_prev = '<'
 "NerdTree
 " Start NERDTree when Vim is started without file arguments.
 autocmd StdinReadPre * let s:std_in=1
@@ -379,4 +382,3 @@ au FileType tex let b:AutoPairs = AutoPairsDefine({'$':'$'})
 "   endif
 " endfunction
 " au BufWritePre * let b:start_time=localtime()
-"Control V is past in vim 
